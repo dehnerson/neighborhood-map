@@ -28,11 +28,7 @@ html, body, #root, .App {
 #sidebar {
   z-index: 1000;
   position: absolute;
-  width: 300px;
-  padding: 1%;
-  /* margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px; */
+  height: 92%;
   background: #ededed;
   transform-origin: 0% 0%;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -40,6 +36,21 @@ html, body, #root, .App {
 
 .sidebar-hidden {
   transform: translate(-100%, 0);
+}
+
+.location-list-top {
+  margin: 40px 30px;
+}
+
+.location-list {
+  list-style: none;
+  margin: 40px 50px;
+  padding: 0;
+}
+
+.location-list-item {
+  margin: 20px 0;
+  cursor: pointer;
 }
 
 .menu-link-wrapper {
