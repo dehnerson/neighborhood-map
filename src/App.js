@@ -24,15 +24,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className='App-bar'>
-          <div className='menu-link-wrapper' onClick={(event) => this.setState((prevState)=>({showSidebar: !prevState.showSidebar}))}>
+          <div tabIndex='0' className='menu-link-wrapper' onClick={(event) => this.setState((prevState)=>({showSidebar: !prevState.showSidebar}))}>
             <div className={this.state.showSidebar ? 'menu-link, menu-trigger-open' : 'menu-link'}>
               <span className="lines"></span>
             </div>
           </div>
           <h1>Neighborhood Map</h1>
         </div>
-        <LocationList show={this.state.showSidebar} locations={this.state.currentLocations} filterLocations={this.filterLocations}/>
-        <Map locations={this.state.currentLocations}/>
         <LocationList show={this.state.showSidebar} locations={this.state.currentLocations} filterLocations={this.filterLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
         <Map sidebarShowing={this.state.showSidebar} locations={this.state.currentLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
       </div>

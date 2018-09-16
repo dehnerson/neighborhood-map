@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class Map extends Component {
   static propTypes = {
-    locations: PropTypes.array.isRequired
+    sidebarShowing: PropTypes.bool.isRequired,
+    locations: PropTypes.array.isRequired,
     infoLocation: PropTypes.object,
     displayInfoLocation: PropTypes.func.isRequired
   }
@@ -21,7 +22,7 @@ class Map extends Component {
     }
 
     return(
-      <div id='map'>
+      <div id='map' className={this.props.sidebarShowing ? 'map map-split' : 'map map-full'}>
       </div>
     );
   }

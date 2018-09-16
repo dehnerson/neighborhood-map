@@ -4,30 +4,45 @@ html, body, #root, .App {
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 .App-bar {
   width: 100%;
   background: #0D0D12;
-  height: 8%;
   display: flex;
-  flex-wrap: wrap;
+  height: 8%;
 }
 
 .App-bar h1{
-  margin: 0;
-  padding-top: 1.5%;
-  text-align: center;
   color: #FFFFFF;
+  margin: auto;
+  font-weight: 900;
+  font-size: x-large;
 }
 
-#map {
+.map {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   height:92%;
-  width: 100%;
   z-index: 1;
+  transition: width 0.5s;
+}
+
+.map-full {
+  width: 100%;
+}
+
+.map-split {
+  width: 80%;
 }
 
 #sidebar {
   z-index: 1000;
   position: absolute;
+  width: 20%;
   height: 92%;
   background: #ededed;
   transform-origin: 0% 0%;
@@ -36,6 +51,46 @@ html, body, #root, .App {
 
 .sidebar-hidden {
   transform: translate(-100%, 0);
+}
+
+@media screen and (max-width: 400px) {
+  #sidebar {
+    width: 80%;
+  }
+
+  .map-split {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  #sidebar {
+    width: 70%;
+  }
+
+  .map-split {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  #sidebar {
+    width: 50%;
+  }
+
+  .map-split {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  #sidebar {
+    width: 30%;
+  }
+
+  .map-split {
+    width: 70%;
+  }
 }
 
 .location-list-top {
@@ -53,11 +108,34 @@ html, body, #root, .App {
   cursor: pointer;
 }
 
+.location-list-item-emphasized {
+  text-decoration: underline;
+}
+
+.loader-wrapper {
+  width: 60px;
+  height: 60px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .menu-link-wrapper {
   width: 65px;
   height: 45px;
   cursor: pointer;
-  padding-top: 1%;
+  margin: auto 0;
 }
 
 .menu-link {
