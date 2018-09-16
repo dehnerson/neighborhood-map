@@ -7,7 +7,7 @@ class App extends Component {
   locations = [
     {name: 'Batschkapp', position: {lat: 50.13543, lng: 8.73895}},
     {name: 'Commerzbank-Arena', position: {lat: 50.0685807, lng: 8.645472}},
-    {name: 'Frankfurter Zoo', position: {lat:50.115835, lng:  8.6995448}},
+    {name: 'Frankfurt Zoological Garden', position: {lat:50.115835, lng:  8.6995448}},
     {name: 'Günthersburgpark', position: {lat:50.1298259, lng: 8.7009022}},
     {name: 'Messe Frankfurt', position: {lat:50.1110660, lng: 8.6455540 }},
     {name: 'Palmengarten Frankfurt', position: {lat:50.1227338, lng: 8.6582298}},
