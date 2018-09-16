@@ -123,13 +123,24 @@ class Map extends Component {
       }
       throw new Error( 'Network response was not ok: ' + response.statusText );
     }).then((jsonData) => {
-      return '<div id="info-window-content">'+
-        '<h3>'+jsonData[1][0]+'</h3>'+
-        '<p>'+jsonData[2][0]+'</p>'+
-        '<span>Further information: <a href='+jsonData[3][0]+' target=blank>'+jsonData[3][0]+'</a></span>'+
-        '</div>';
+      if(jsonData[1][0]) {
+        return '<div id="info-window-content">'+
+          '<h3>'+jsonData[1][0]+'</h3>'+
+          '<p>'+jsonData[2][0]+'</p>'+
+          '<p>Further information: <a href='+jsonData[3][0]+' target=blank>'+jsonData[3][0]+'</a></p>'+
+          '</div>';
+      }
+      else {
+        return '<div id="info-window-content">'+
+          '<h3>Sorry!</h3>'+
+          '<p>No further information about <b>'+name+'</b> available at Wikipedia!</p>'+
+          '</div>';
+      }
     }).catch((error) => {
-      console.log(error);
+      return '<div id="info-window-content">'+
+        '<h3>Error</h3>'+
+        '<p>'+error.message+'</p>'+
+        '</div>';
     });
   }
 
