@@ -28,7 +28,7 @@ body {
   right: 0;
   height:92%;
   z-index: 1;
-  transition: width 0.5s;
+  transition: width 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
 .map-full {
@@ -102,6 +102,11 @@ body {
   margin: 40px 30px;
 }
 
+.location-filter {
+  border-radius: 2px;
+  padding: 5px;
+}
+
 .location-list {
   list-style: none;
   margin: 40px 50px;
@@ -111,10 +116,13 @@ body {
 .location-list-item {
   margin: 20px 0;
   cursor: pointer;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 2px;
 }
 
 .location-list-item-emphasized {
-  text-decoration: underline;
+  background-color: #B2B6B8;
 }
 
 .loader-wrapper {

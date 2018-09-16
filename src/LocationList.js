@@ -14,7 +14,7 @@ class LocationList extends Component {
     return(
       <aside id='sidebar' className={this.props.show ? 'sidebar-visible' : 'sidebar-hidden'}>
         <div className='location-list-top'>
-          <input type='text' placeholder='Filter'
+          <input type='text' placeholder='Filter' className='location-filter'
             onChange={(event) => this.props.filterLocations(event.target.value)}
           />
         </div>
