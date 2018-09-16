@@ -22,8 +22,8 @@ class Map extends Component {
     }
 
     return(
-      <div id='map' className={this.props.sidebarShowing ? 'map map-split' : 'map map-full'}>
-      </div>
+      <main tabIndex='-1' id='map' className={this.props.sidebarShowing ? 'map map-split' : 'map map-full'}>
+      </main>
     );
   }
 

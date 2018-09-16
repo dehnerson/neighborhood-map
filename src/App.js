@@ -23,18 +23,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className='App-bar'>
-          <div tabIndex='0' className='menu-link-wrapper' onClick={(event) => this.setState((prevState)=>({showSidebar: !prevState.showSidebar}))}>
+        <header className='App-bar'>
+          <nav tabIndex='0' className='menu-link-wrapper' onKeyUp={(event) => event.keyCode === 13 && this.toggleSidebar()} onClick={(event) => this.toggleSidebar()}>
             <div className={this.state.showSidebar ? 'menu-link, menu-trigger-open' : 'menu-link'}>
               <span className="lines"></span>
             </div>
-          </div>
+          </nav>
           <h1>Neighborhood Map</h1>
-        </div>
+        </header>
         <LocationList show={this.state.showSidebar} locations={this.state.currentLocations} filterLocations={this.filterLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
         <Map sidebarShowing={this.state.showSidebar} locations={this.state.currentLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
       </div>
     );
+  }
+
+  toggleSidebar = () => {
+    this.setState((prevState)=>({showSidebar: !prevState.showSidebar}));
   }
 
   filterLocations = (query) => {
