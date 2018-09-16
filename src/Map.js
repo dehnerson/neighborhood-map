@@ -40,23 +40,47 @@ class Map extends Component {
   }
 
   updateMarkers = () => {
-    if(!this.state.map) return;
+    const locations = this.props.locations;
+    const markers = this.markers;
+    const map = this.state.map;
+    const displayInfoLocation = this.props.displayInfoLocation;
 
-    this.deleteMarkers();
+    // Check if displayed markers are still valid.
+    // If not, hide them!
+    markers.forEach((marker) => {
+      const location = locations.find((location) => {
+        return marker.title === location.name;
+      });
 
-    this.props.locations.forEach((location) => {
-      this.markers.push(new window.google.maps.Marker({
-                          position: location.position,
-                          map: this.state.map,
-                          title: location.name
-                        }))
+      if(!location) {
+        marker.setMap(null);
+      }
+    });
+
+    // Check if there are new markers to be created, or hidden ones to be displayed again.
+    locations.forEach((location) => {
+      let marker = markers.find((marker) => {
+        return marker.title === location.name;
+      });
+
+      if(!marker) {
+        marker = new window.google.maps.Marker({
+          position: location.position,
+          map: map,
+          title: location.name
+        });
+
+        marker.addListener('click', function() {
+          displayInfoLocation(location);
+        });
+
+        markers.push(marker);
+      }
+      else if(!marker.map) {
+        marker.setMap(map);
+      }
     });
   }
-
-  deleteMarkers = () => {
-    this.markers.forEach((marker) => {
-      marker.setMap(null);
-    });
 
   showInfoLocation = () => {
     if(!this.infoWindow) {
