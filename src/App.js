@@ -16,6 +16,7 @@ class App extends Component {
 
   state = {
     currentLocations: this.locations,
+    infoLocation: null,
     showSidebar: false
   }
 
@@ -32,6 +33,8 @@ class App extends Component {
         </div>
         <LocationList show={this.state.showSidebar} locations={this.state.currentLocations} filterLocations={this.filterLocations}/>
         <Map locations={this.state.currentLocations}/>
+        <LocationList show={this.state.showSidebar} locations={this.state.currentLocations} filterLocations={this.filterLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
+        <Map sidebarShowing={this.state.showSidebar} locations={this.state.currentLocations} infoLocation={this.state.infoLocation} displayInfoLocation={this.displayInfoLocation}/>
       </div>
     );
   }
@@ -44,6 +47,10 @@ class App extends Component {
     else {
       this.setState({currentLocations: this.locations});
     }
+  }
+
+  displayInfoLocation = (location) => {
+    this.setState({infoLocation: location});
   }
 }
 

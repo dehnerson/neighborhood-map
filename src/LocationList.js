@@ -5,7 +5,9 @@ class LocationList extends Component {
   static propTypes = {
     show: PropTypes.bool.isRequired,
     locations: PropTypes.array.isRequired,
-    filterLocations: PropTypes.func.isRequired
+    filterLocations: PropTypes.func.isRequired,
+    infoLocation: PropTypes.object,
+    displayInfoLocation: PropTypes.func.isRequired
   }
 
   render() {
@@ -19,7 +21,8 @@ class LocationList extends Component {
 
         <ul className='location-list'>
           {this.props.locations.map((location) => (
-            <li key={location.name} className='location-list-item'>
+            <li key={location.name} className={this.props.infoLocation === location ? 'location-list-item location-list-item-emphasized' : 'location-list-item'}
+              onClick={(event) => this.props.displayInfoLocation(location)}>
               {location.name}
             </li>
           ))}
