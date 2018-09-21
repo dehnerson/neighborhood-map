@@ -23,6 +23,12 @@ npm start
 ```
 
 
+## Dependencies
+
+- [Google Maps API](https://cloud.google.com/maps-platform/?hl=de)
+- [MediaWiki API](https://www.mediawiki.org/wiki/API:Main_page/en)
+
+
 ## Contributing
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
