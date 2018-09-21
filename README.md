@@ -11,7 +11,7 @@ purposes.
 
 ```
 git clone https://github.com/dehnerson/neighborhood-map.git
-cd myreads
+cd neighborhood-map
 ```
 
 Install dependencies and run with:
