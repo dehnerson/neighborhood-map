@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className='App-bar'>
-          <nav tabIndex='0' className='menu-link-wrapper' onKeyUp={(event) => event.keyCode === 13 && this.toggleSidebar()} onClick={(event) => this.toggleSidebar()}>
+          <nav role='button' tabIndex='0' className='menu-link-wrapper' onKeyUp={(event) => event.keyCode === 13 && this.toggleSidebar()} onClick={(event) => this.toggleSidebar()}>
             <div className={this.state.showSidebar ? 'menu-link, menu-trigger-open' : 'menu-link'}>
               <span className="lines"></span>
             </div>
