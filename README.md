@@ -4,6 +4,12 @@ This project formed out of the [Udacity Front-End Web Developer Nanodegree Progr
 Neighborhood Map is an app showing interesting locations within my neighborhood. Additional information can be provided on request.
 
 
+## Production build
+
+Check [this](https://dehnerson.github.io/neighborhood-map/) out. This is a production build hosted by [GitHub Pages](https://pages.github.com/).
+It contains a real production version with all it's features, like active Service Worker and so on!
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing
